@@ -4,11 +4,20 @@ import { Op } from "sequelize";
 const create = async (user) => {
 
     try {
-        const newUser = await User.create(user);
-            
-        return newUser;
+        const userExist = await User.findAll({
+            where: {
+                email: email
+            }
+        });
 
-    } catch(error) {
+        if(!userExist){
+            const newUser = await User.create(user);
+            return newUser;
+        }else {
+            return null
+        }
+
+    } catch (error) {
         console.error(error)
 
         return null;
@@ -16,25 +25,25 @@ const create = async (user) => {
 
 }
 
-const login = async(email, password) => {
+const login = async (email, password) => {
 
     try {
         return await User.findAll({
             where: {
-              [Op.and]: [
-                { email: email },
-                { password: password }
-              ]
+                [Op.and]: [
+                    { email: email },
+                    { password: password }
+                ]
             }
-          });
-    } catch(error) {
+        });
+    } catch (error) {
         console.error(error)
         return null
     }
 
 }
 
-const findOne = async(id) => {
+const findOne = async (id) => {
 
     try {
         return await User.findOne({
@@ -49,7 +58,7 @@ const findOne = async(id) => {
 
 }
 
-const update = async(user) => {
+const update = async (user) => {
     try {
         const foundOrder = await User.findOne({
             where: {
@@ -63,7 +72,7 @@ const update = async(user) => {
 
         return foundOrder;
 
-    } catch(error) {
+    } catch (error) {
         console.error(error)
         return null;
     }
@@ -80,7 +89,7 @@ const remove = async (id) => {
 
         return true;
 
-    } catch(error) {
+    } catch (error) {
         console.error(error);
         return false;
     }

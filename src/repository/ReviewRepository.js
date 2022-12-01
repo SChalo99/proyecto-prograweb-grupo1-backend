@@ -1,13 +1,12 @@
-import Category from "../models/category.js";
-import Product from "../models/product.js";
+import Reviews from "../models/review.js";
+import User from "../models/user.js";
 
-
-const create = async (product) => {
+const create = async (review) => {
 
     try {
-        const newProduct = await Product.create(product);
+        const newReview = await Reviews.create(review);
             
-        return newProduct;
+        return newReview;
 
     } catch(error) {
         console.error(error)
@@ -20,7 +19,9 @@ const create = async (product) => {
 const findAll = async() => {
 
     try {
-        return await Product.findAll({ include: Category });
+        return await Reviews.findAll({ 
+            include: User 
+        });
     } catch(error) {
         console.error(error)
         return null
@@ -31,10 +32,12 @@ const findAll = async() => {
 const findOne = async(id) => {
 
     try {
-        return await Product.findOne({
+        return await Reviews.findOne({
             where: {
                 id: id
             }
+        },{ 
+            include: User 
         })
     } catch (error) {
         console.error(error)
@@ -43,19 +46,19 @@ const findOne = async(id) => {
 
 }
 
-const update = async(product) => {
+const update = async(review) => {
     try {
-        const foundProduct = await Product.findOne({
+        const foundReviews = await Reviews.findOne({
             where: {
-                id: product.id
+                id: review.id
             }
         })
 
-        foundProduct.set(product);
+        foundReviews.set(review);
 
-        await foundProduct.save();
+        await foundReviews.save();
 
-        return foundProduct;
+        return foundReviews;
 
     } catch(error) {
         console.error(error)
@@ -66,7 +69,7 @@ const update = async(product) => {
 const remove = async (id) => {
 
     try {
-        await Product.destroy({
+        await Reviews.destroy({
             where: {
                 id: id
             }
@@ -80,6 +83,6 @@ const remove = async (id) => {
     }
 }
 
-const ProductRepository = { create, findAll, findOne, update, remove }
+const ReviewRepository = { create, findAll, findOne, update, remove }
 
-export default ProductRepository
+export default ReviewRepository

@@ -1,12 +1,12 @@
-import Order from "../models/order.js";
+import Report from "../models/report.js";
 import User from "../models/user.js";
 
-const create = async (order) => {
+const create = async (report) => {
 
     try {
-        const newOrder = await Order.create(order);
+        const newReport = await Report.create(report);
             
-        return newOrder;
+        return newReport;
 
     } catch(error) {
         console.error(error)
@@ -19,7 +19,7 @@ const create = async (order) => {
 const findAll = async(id) => {
 
     try {
-        return await Order.findAll({
+        return await Report.findAll({
             where: {
             user_id: id
           }
@@ -36,11 +36,11 @@ const findAll = async(id) => {
 const findOne = async(id) => {
 
     try {
-        return await Order.findOne({
+        return await Report.findOne({
             where: {
                 id: id
             }
-        }, { 
+        },{ 
             include: User 
         })
     } catch (error) {
@@ -50,19 +50,19 @@ const findOne = async(id) => {
 
 }
 
-const update = async(order) => {
+const update = async(report) => {
     try {
-        const foundOrder = await Order.findOne({
+        const foundReport = await Report.findOne({
             where: {
-                id: order.id
+                id: report.id
             }
         })
 
-        foundOrder.set(order);
+        foundReport.set(report);
 
-        await foundOrder.save();
+        await foundReport.save();
 
-        return foundOrder;
+        return foundReport;
 
     } catch(error) {
         console.error(error)
@@ -73,7 +73,7 @@ const update = async(order) => {
 const remove = async (id) => {
 
     try {
-        await Order.destroy({
+        await Report.destroy({
             where: {
                 id: id
             }
@@ -87,6 +87,6 @@ const remove = async (id) => {
     }
 }
 
-const OrderRepository = { create, findAll, findOne, update, remove }
+const ReportRepository = { create, findAll, findOne, update, remove }
 
-export default OrderRepository
+export default ReportRepository

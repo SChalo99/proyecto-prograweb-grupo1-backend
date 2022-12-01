@@ -1,12 +1,12 @@
-import Order from "../models/order.js";
-import User from "../models/user.js";
+import Reviews from "../models/review.js";
+import Review_Type from "../models/reviewType.js";
 
-const create = async (order) => {
+const create = async (reviewType) => {
 
     try {
-        const newOrder = await Order.create(order);
+        const newReviewType = await Review_Type.create(reviewType);
             
-        return newOrder;
+        return newReviewType;
 
     } catch(error) {
         console.error(error)
@@ -19,12 +19,12 @@ const create = async (order) => {
 const findAll = async(id) => {
 
     try {
-        return await Order.findAll({
+        return await Review_Type.findAll({
             where: {
-            user_id: id
+            review_id: id
           }
         },{ 
-            include: User 
+            include: Reviews 
         });
     } catch(error) {
         console.error(error)
@@ -36,12 +36,12 @@ const findAll = async(id) => {
 const findOne = async(id) => {
 
     try {
-        return await Order.findOne({
+        return await Review_Type.findOne({
             where: {
                 id: id
             }
-        }, { 
-            include: User 
+        },{ 
+            include: Reviews 
         })
     } catch (error) {
         console.error(error)
@@ -50,19 +50,19 @@ const findOne = async(id) => {
 
 }
 
-const update = async(order) => {
+const update = async(reviewType) => {
     try {
-        const foundOrder = await Order.findOne({
+        const foundReviewsType = await Review_Type.findOne({
             where: {
-                id: order.id
+                id: reviewType.id
             }
         })
 
-        foundOrder.set(order);
+        foundReviewsType.set(reviewType);
 
-        await foundOrder.save();
+        await foundReviewsType.save();
 
-        return foundOrder;
+        return foundReviewsType;
 
     } catch(error) {
         console.error(error)
@@ -73,7 +73,7 @@ const update = async(order) => {
 const remove = async (id) => {
 
     try {
-        await Order.destroy({
+        await Review_Type.destroy({
             where: {
                 id: id
             }
@@ -87,6 +87,6 @@ const remove = async (id) => {
     }
 }
 
-const OrderRepository = { create, findAll, findOne, update, remove }
+const ReviewTypeRepository = { create, findAll, findOne, update, remove }
 
-export default OrderRepository
+export default ReviewTypeRepository

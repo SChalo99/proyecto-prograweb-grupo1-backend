@@ -1,13 +1,11 @@
 import Category from "../models/category.js";
-import Product from "../models/product.js";
 
-
-const create = async (product) => {
+const create = async (category) => {
 
     try {
-        const newProduct = await Product.create(product);
+        const newCategory = await Category.create(category);
             
-        return newProduct;
+        return newCategory;
 
     } catch(error) {
         console.error(error)
@@ -20,7 +18,7 @@ const create = async (product) => {
 const findAll = async() => {
 
     try {
-        return await Product.findAll({ include: Category });
+        return await Category.findAll();
     } catch(error) {
         console.error(error)
         return null
@@ -31,7 +29,7 @@ const findAll = async() => {
 const findOne = async(id) => {
 
     try {
-        return await Product.findOne({
+        return await Category.findOne({
             where: {
                 id: id
             }
@@ -43,19 +41,19 @@ const findOne = async(id) => {
 
 }
 
-const update = async(product) => {
+const update = async(category) => {
     try {
-        const foundProduct = await Product.findOne({
+        const foundCategory = await Category.findOne({
             where: {
-                id: product.id
+                id: category.id
             }
         })
 
-        foundProduct.set(product);
+        foundCategory.set(category);
 
-        await foundProduct.save();
+        await foundCategory.save();
 
-        return foundProduct;
+        return foundCategory;
 
     } catch(error) {
         console.error(error)
@@ -66,7 +64,7 @@ const update = async(product) => {
 const remove = async (id) => {
 
     try {
-        await Product.destroy({
+        await Category.destroy({
             where: {
                 id: id
             }
@@ -80,6 +78,6 @@ const remove = async (id) => {
     }
 }
 
-const ProductRepository = { create, findAll, findOne, update, remove }
+const CategoryRepository = { create, findAll, findOne, update, remove }
 
-export default ProductRepository
+export default CategoryRepository

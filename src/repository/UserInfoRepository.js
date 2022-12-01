@@ -1,12 +1,12 @@
-import Order from "../models/order.js";
 import User from "../models/user.js";
+import UserInfo from "../models/userInfo.js";
 
-const create = async (order) => {
+const create = async (userInfo) => {
 
     try {
-        const newOrder = await Order.create(order);
+        const newUserInfo = await UserInfo.create(userInfo);
             
-        return newOrder;
+        return newUserInfo;
 
     } catch(error) {
         console.error(error)
@@ -19,7 +19,7 @@ const create = async (order) => {
 const findAll = async(id) => {
 
     try {
-        return await Order.findAll({
+        return await UserInfo.findAll({
             where: {
             user_id: id
           }
@@ -36,11 +36,11 @@ const findAll = async(id) => {
 const findOne = async(id) => {
 
     try {
-        return await Order.findOne({
+        return await UserInfo.findOne({
             where: {
                 id: id
             }
-        }, { 
+        },{ 
             include: User 
         })
     } catch (error) {
@@ -50,19 +50,19 @@ const findOne = async(id) => {
 
 }
 
-const update = async(order) => {
+const update = async(userInfo) => {
     try {
-        const foundOrder = await Order.findOne({
+        const foundUserInfo = await UserInfo.findOne({
             where: {
-                id: order.id
+                id: userInfo.id
             }
         })
 
-        foundOrder.set(order);
+        foundUserInfo.set(userInfo);
 
-        await foundOrder.save();
+        await foundUserInfo.save();
 
-        return foundOrder;
+        return foundUserInfo;
 
     } catch(error) {
         console.error(error)
@@ -73,7 +73,7 @@ const update = async(order) => {
 const remove = async (id) => {
 
     try {
-        await Order.destroy({
+        await UserInfo.destroy({
             where: {
                 id: id
             }
@@ -87,6 +87,6 @@ const remove = async (id) => {
     }
 }
 
-const OrderRepository = { create, findAll, findOne, update, remove }
+const UserInfoRepository = { create, findAll, findOne, update, remove }
 
-export default OrderRepository
+export default UserInfoRepository
