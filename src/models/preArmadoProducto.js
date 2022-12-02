@@ -4,7 +4,7 @@ import sequelize from '../config/database.js'
 import PreArmado from './preArmado.js'
 import Product from './product.js'
 
-const PreArmadoProducto = sequelize.define('pre_armado_producto', {
+const PreArmadoProducto = sequelize.define('preArmadoProducto', {
 
     id: {
         type: DataTypes.INTEGER,

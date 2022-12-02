@@ -3,7 +3,7 @@ import { DataTypes } from 'sequelize'
 import sequelize from '../config/database.js'
 import User from './user.js'
 
-const Order = sequelize.define('orders', {
+const Order = sequelize.define('order', {
 
     id: {
         type: DataTypes.INTEGER,

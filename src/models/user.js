@@ -13,7 +13,7 @@ const User = sequelize.define('users', {
     name: {
         type: DataTypes.STRING
     },
-    lastName: {
+    lastname: {
         type: DataTypes.STRING
     },
     email: {

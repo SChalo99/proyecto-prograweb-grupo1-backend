@@ -4,7 +4,7 @@ import sequelize from '../config/database.js'
 import Order from './order.js'
 import Product from './product.js'
 
-const OrderProduct = sequelize.define('order_product', {
+const OrderProduct = sequelize.define('orderProducts', {
 
     id: {
         type: DataTypes.INTEGER,

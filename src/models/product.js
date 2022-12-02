@@ -3,7 +3,7 @@ import { DataTypes } from 'sequelize'
 import sequelize from '../config/database.js'
 import Category from './category.js'
 
-const Product = sequelize.define('products', {
+const Product = sequelize.define('product', {
 
     id: {
         type: DataTypes.INTEGER,
@@ -17,7 +17,7 @@ const Product = sequelize.define('products', {
     price: {
         type: DataTypes.DOUBLE
     },
-    decription: {
+    description: {
         type: DataTypes.STRING
     },
     category_id: {

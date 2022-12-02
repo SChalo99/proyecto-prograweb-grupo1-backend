@@ -3,7 +3,7 @@ import { DataTypes } from 'sequelize'
 import sequelize from '../config/database.js'
 import Review from './review';
 
-const Review_Type = sequelize.define('review_type', {
+const Review_Type = sequelize.define('reviewType', {
 
     id: {
         type: DataTypes.INTEGER,

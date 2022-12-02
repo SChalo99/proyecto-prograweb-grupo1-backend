@@ -46,9 +46,14 @@ const login = async (email, password) => {
 const findOne = async (id) => {
 
     try {
-        return await User.findOne({
+        console.log(await User.findOne({
             where: {
                 id: id
+            }}))
+
+        return await User.findOne({
+            where: {
+                id: parseInt(id)
             }
         })
     } catch (error) {

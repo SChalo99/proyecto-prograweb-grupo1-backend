@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize'
 
 import sequelize from '../config/database.js'
 
-const formulario = sequelize.define('category', {
+const formulario = sequelize.define('formulario', {
 
     id: {
         type: DataTypes.INTEGER,
