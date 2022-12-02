@@ -6,7 +6,7 @@ const create = async (user) => {
     try {
         const userExist = await User.findAll({
             where: {
-                email: email
+                email: user.email
             }
         });
 
