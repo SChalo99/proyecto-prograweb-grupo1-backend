@@ -18,7 +18,7 @@ const create = async (preArmadoProduct) => {
 const findAll = async() => {
 
     try {
-        return await PreArmadoProducto.findAll([{ include: Order }, { include: Product }]);
+        return await PreArmadoProducto.findAll([{ include: Order }, { include: Product }]); //Cambiar como findOrder de OrderProductRepo.
     } catch(error) {
         console.error(error)
         return null

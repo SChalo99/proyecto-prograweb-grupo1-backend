@@ -19,7 +19,7 @@ const create = async (preArmado) => {
 const findAll = async() => {
 
     try {
-        return await PreArmado.findAll();
+        return await PreArmado.findAll(); //Los 4 prebuilds
     } catch(error) {
         console.error(error)
         return null
