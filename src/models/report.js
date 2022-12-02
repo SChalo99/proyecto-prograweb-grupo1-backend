@@ -29,6 +29,10 @@ const Report = sequelize.define('reports', {
     user_id: {
         type: DataTypes.INTEGER
     }
+}, 
+{
+    timestamps : false,
+    freezeTableName : true
 })
 
 User.hasMany(Report,{

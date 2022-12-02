@@ -16,6 +16,10 @@ const Category = sequelize.define('category', {
     decription: {
         type: DataTypes.STRING
     }
+}, 
+{
+    timestamps : false,
+    freezeTableName : true
 })
 
 

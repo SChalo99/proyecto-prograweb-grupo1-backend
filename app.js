@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from 'body-parser'
 import userRoute from './src/routes/user.js'
 import perifericRoute from './src/routes/periferic.js'
+import reviewRoute from './src/routes/review.js'
 
 var app = express();
 
@@ -13,5 +14,6 @@ app.use(bodyParser.json());
 app.use('/periferic', perifericRoute);
 
 app.use('/user', userRoute)
+app.use('/review', reviewRoute)
 
 export default app

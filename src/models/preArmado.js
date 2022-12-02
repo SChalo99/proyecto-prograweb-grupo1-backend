@@ -16,6 +16,10 @@ const PreArmado = sequelize.define('preArmado', {
     description: {
         type: DataTypes.STRING
     }
+}, 
+{
+    timestamps : false,
+    freezeTableName : true
 })
 
 export default PreArmado;

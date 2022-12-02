@@ -23,6 +23,10 @@ const Product = sequelize.define('product', {
     category_id: {
         type: DataTypes.INTEGER
     }
+}, 
+{
+    timestamps : false,
+    freezeTableName : true
 })
 
 Category.hasMany(Product,{

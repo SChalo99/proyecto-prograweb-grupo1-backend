@@ -18,6 +18,10 @@ const OrderProduct = sequelize.define('orderProducts', {
     product_id: {
         type: DataTypes.INTEGER
     }
+}, 
+{
+    timestamps : false,
+    freezeTableName : true
 })
 
 Order.hasMany(OrderProduct,{

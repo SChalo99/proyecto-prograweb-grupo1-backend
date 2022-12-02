@@ -18,6 +18,10 @@ const PreArmadoProducto = sequelize.define('preArmadoProducto', {
     product_id: {
         type: DataTypes.INTEGER
     }
+}, 
+{
+    timestamps : false,
+    freezeTableName : true
 })
 
 PreArmado.hasMany(PreArmadoProducto,{

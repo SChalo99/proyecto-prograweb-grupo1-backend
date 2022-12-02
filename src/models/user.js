@@ -22,6 +22,10 @@ const User = sequelize.define('users', {
     password: {
         type: DataTypes.STRING
     }
+}, 
+{
+    timestamps : false,
+    freezeTableName : true
 })
 
 export default User;

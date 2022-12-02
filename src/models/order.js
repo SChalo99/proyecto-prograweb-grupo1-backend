@@ -23,6 +23,10 @@ const Order = sequelize.define('order', {
     user_id: {
         type: DataTypes.INTEGER
     }
+}, 
+{
+    timestamps : false,
+    freezeTableName : true
 })
 
 User.hasMany(Order,{

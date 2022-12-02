@@ -25,6 +25,10 @@ const formulario = sequelize.define('formulario', {
     description: {
         type: DataTypes.STRING
     }
+}, 
+{
+    timestamps : false,
+    freezeTableName : true
 })
 
 

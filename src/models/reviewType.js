@@ -20,6 +20,10 @@ const Review_Type = sequelize.define('reviewType', {
     review_id: {
         type: DataTypes.INTEGER
     }
+}, 
+{
+    timestamps : false,
+    freezeTableName : true
 })
 
 Review.hasMany(Review_Type,{
