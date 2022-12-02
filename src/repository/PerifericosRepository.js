@@ -1,8 +1,8 @@
-import productos from '../models/product.js';
+import Product from '../models/product.js';
 
 const getallperifericos = async() => {
     try {
-        return await productos.getAll({
+        return await Product.findAll({
             where: {
                 category_id: 2
             }
