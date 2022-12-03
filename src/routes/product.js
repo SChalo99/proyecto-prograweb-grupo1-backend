@@ -5,5 +5,5 @@ const { getall } = ProductController
 
 const router = express.Router();
 
-router.get('/', getall)
+router.get('/:id', getall)
 export default router

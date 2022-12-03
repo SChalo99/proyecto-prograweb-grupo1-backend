@@ -1,7 +1,7 @@
 import OrderProductRepository from "../repository/OrderProductRepository.js"
 
 const productsList = async (req, res) => {
-    const result = await OrderProductRepository.findOrder(req.params.order_id)
+    const result = await OrderProductRepository.findProducts(req.params.order_id)
 
     return sendResponse(result, res)
 }

@@ -12,6 +12,12 @@ const findOne = async (req, res) => {
     return sendResponse(result, res)
 }
 
+const create = async (req, res) => {
+    const result = await UserRepository.create(req.body)
+
+    return sendResponse(result, res)
+}
+
 const sendResponse = (result, res) => {
     if (result)
         return res.status(200).json(result)
@@ -19,6 +25,8 @@ const sendResponse = (result, res) => {
         return res.status(500).json({ message: 'An error has ocurred.' })
 }
 
-const UserControler = {login, findOne}
+
+
+const UserControler = {login, findOne, create}
 
 export default UserControler

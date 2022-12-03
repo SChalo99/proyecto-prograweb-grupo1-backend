@@ -32,11 +32,9 @@ const findOrder = async(id) => {
 
     try {
         return await OrderProduct.findAll({
-            include: [{
-                model: Product}, 
-                {model: Order
+            include:  {Product
                 
-            }],where: {
+            },where: {
                 order_id: parseInt(id)
             }
         })
@@ -45,6 +43,20 @@ const findOrder = async(id) => {
         return null;
     }
 
+}
+
+const findProducts = async (id) =>{
+    try {
+        return await OrderProduct.findAll({
+            include: Product
+            ,where: {
+                order_id: parseInt(id)
+            }
+        })
+    } catch (error) {
+        console.error(error)
+        return null;
+    }
 }
 
 const update = async(orderProduct) => {
@@ -84,6 +96,6 @@ const remove = async (id) => {
     }
 }
 
-const OrderProductRepository = { create, findAll, findOrder, update, remove }
+const OrderProductRepository = { create, findAll, findOrder, update, remove, findProducts }
 
 export default OrderProductRepository

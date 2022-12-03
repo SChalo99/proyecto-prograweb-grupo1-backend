@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import Category from "../models/category.js";
 import Product from "../models/product.js";
 
@@ -17,10 +18,13 @@ const create = async (product) => {
 
 }
 
-const findAll = async() => {
+const findAll = async(id) => {
 
     try {
-        return await Product.findAll({ include: Category });
+        return await Product.findAll({include: Category, 
+            where: {
+                category_id: parseInt(id)
+        }});
     } catch(error) {
         console.error(error)
         return null

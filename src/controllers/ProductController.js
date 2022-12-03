@@ -1,7 +1,7 @@
 import ProductRepository from "../repository/ProductRepository.js";
 
 const getall = async (req, res) => {
-    const result = await ProductRepository.findAll();
+    const result = await ProductRepository.findAll(req.params.id);
     return sendResponse(result, res);
 }
 

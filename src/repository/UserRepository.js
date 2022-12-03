@@ -4,18 +4,8 @@ import { Op } from "sequelize";
 const create = async (user) => {
 
     try {
-        const userExist = await User.findAll({
-            where: {
-                email: user.email
-            }
-        });
-
-        if(!userExist){
-            const newUser = await User.create(user);
-            return newUser;
-        }else {
-            return null
-        }
+        const newUser = await User.create(user);
+        return newUser;
 
     } catch (error) {
         console.error(error)
