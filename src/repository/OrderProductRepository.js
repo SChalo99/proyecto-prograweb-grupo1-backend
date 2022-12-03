@@ -32,11 +32,11 @@ const findOrder = async(id) => {
 
     try {
         return await OrderProduct.findAll({
-            include: {
-                model: Product, 
-                model: Order
+            include: [{
+                model: Product}, 
+                {model: Order
                 
-            },where: {
+            }],where: {
                 order_id: id
             }
         })

@@ -20,11 +20,11 @@ const create = async (preArmadoProduct) => {
 const findProducto = async (id) => {
     try {
         return await PreArmadoProducto.findAll({
-            include: {
-                model: Product,
-                model: PreArmado
-            }, where: {
-                preArmado_id: id
+            include: [{
+                model: Product},
+                {model: PreArmado
+            }], where: {
+                preArmado_id: parseInt(id)
             }
         })
     } catch (error) {
@@ -85,6 +85,6 @@ const remove = async (id) => {
     }
 }
 
-const PreArmadoProductRepository = { create, findAll, findOne, update, remove, findProducto }
+const PreArmadoProductRepository = { create, findOne, update, remove, findProducto }
 
 export default PreArmadoProductRepository

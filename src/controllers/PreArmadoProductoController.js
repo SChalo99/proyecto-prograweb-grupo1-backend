@@ -1,7 +1,7 @@
 import PreArmadoProductRepository from "../repository/PreArmadoProductoRepository.js";
 
 const findProducto = async (req, res) => {
-    const result = await PreArmadoProductRepository.findProducto(req.params.product_id);
+    const result = await PreArmadoProductRepository.findProducto(req.params.id);
     return sendResponse(result, res);
 }
 
@@ -12,5 +12,5 @@ const sendResponse = (result, res) => {
         return res.status(500).json({ message: 'An error has ocurred.' })
 }
 
-const PreArmadoProductRepository = {findProducto}
-export default PreArmadoProductRepository
+const PreArmadoProductoController = {findProducto}
+export default PreArmadoProductoController
