@@ -1,7 +1,7 @@
 import PreArmadoProductRepository from "../repository/PreArmadoProductoRepository.js";
 
 const findProducto = async (req, res) => {
-    const result = await PreArmadoProductRepository.findProducto(req.params.id);
+    const result = await PreArmadoProductRepository.findProducto();
     return sendResponse(result, res);
 }
 

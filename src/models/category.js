@@ -13,7 +13,7 @@ const Category = sequelize.define('category', {
     name: {
         type: DataTypes.STRING
     },
-    decription: {
+    description: {
         type: DataTypes.STRING
     }
 }, 

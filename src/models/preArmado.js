@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize'
 
 import sequelize from '../config/database.js'
 
-const PreArmado = sequelize.define('preArmado', {
+const PreArmado = sequelize.define('prearmado', {
 
     id: {
         type: DataTypes.INTEGER,

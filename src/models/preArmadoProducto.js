@@ -4,7 +4,7 @@ import sequelize from '../config/database.js'
 import PreArmado from './preArmado.js'
 import Product from './product.js'
 
-const PreArmadoProducto = sequelize.define('preArmadoProducto', {
+const PreArmadoProducto = sequelize.define('prearmadoproducto', {
 
     id: {
         type: DataTypes.INTEGER,
@@ -12,7 +12,7 @@ const PreArmadoProducto = sequelize.define('preArmadoProducto', {
         autoIncrement: true,
         allowNull: false
     },
-    preArmado_id: {
+    prearmado_id: {
         type: DataTypes.INTEGER
     },
     product_id: {
@@ -25,12 +25,12 @@ const PreArmadoProducto = sequelize.define('preArmadoProducto', {
 })
 
 PreArmado.hasMany(PreArmadoProducto,{
-    foreignKey: 'preArmado_id',
+    foreignKey: 'prearmado_id',
     sourceKey: 'id'
 })
 
 PreArmadoProducto.belongsTo(PreArmado,{
-    foreignKey: 'preArmado_id',
+    foreignKey: 'prearmado_id',
     targetId: 'id'
 })
 

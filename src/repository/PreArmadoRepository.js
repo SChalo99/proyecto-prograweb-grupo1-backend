@@ -1,4 +1,6 @@
 import PreArmado from "../models/preArmado.js";
+import PreArmadoProducto from "../models/preArmadoProducto.js";
+import Product from "../models/product.js";
 
 
 const create = async (preArmado) => {
@@ -19,7 +21,7 @@ const create = async (preArmado) => {
 const findAll = async() => {
 
     try {
-        return await PreArmado.findAll(); //Los 4 prebuilds
+        return await PreArmado.findAll({include: [{model: PreArmadoProducto, include:[Product]}]}); //Los 4 prebuilds
     } catch(error) {
         console.error(error)
         return null
