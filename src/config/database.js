@@ -1,11 +1,11 @@
 import Sequelize from 'sequelize'
 
-const hostname = process.env.HOSTNAME || '127.0.0.1'
-const username = process.env.DBUSER || 'postgres'
-const password = process.env.PASSWORD || '123'
-const database = process.env.DATABASE || 'postgres'
+const hostname = process.env.PGHOST || '127.0.0.1'
+const username = process.env.PGUSER || 'postgres'
+const password = process.env.PGPASSWORD || '123'
+const database = process.env.PGDATABASE || 'postgres'
 const dialect = process.env.DIALECT || 'postgres'
-const port = process.env.DBPORT || 5432
+const port = process.env.PGPORT || 5432
 
 const sequelize = new Sequelize(database,username,password, {
     host: hostname,
