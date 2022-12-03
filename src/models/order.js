@@ -12,7 +12,7 @@ const Order = sequelize.define('order', {
         allowNull: false
     },
     amount: {
-        type: DataTypes.DOUBLE
+        type: DataTypes.INTEGER
     },
     direction: {
         type: DataTypes.STRING

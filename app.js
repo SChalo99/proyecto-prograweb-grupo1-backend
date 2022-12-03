@@ -8,6 +8,8 @@ import preArmadoRoute from './src/routes/preArmado.js'
 import preArmadoProductoRoute from './src/routes/preArmadoProducto.js'
 import productRoute from './src/routes/product.js'
 
+import shoppingCartRoute from './src/routes/shoppingCart.js'
+
 var app = express();
 
 app.use(cors());
@@ -22,5 +24,6 @@ app.use('/product', productRoute);
 
 app.use('/user', userRoute)
 app.use('/review', reviewRoute)
+app.use('/shoppingcart', shoppingCartRoute)
 
 export default app
