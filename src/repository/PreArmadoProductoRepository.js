@@ -38,7 +38,7 @@ const findOne = async(id) => {
     try {
         return await PreArmadoProducto.findOne({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
     } catch (error) {
@@ -52,7 +52,7 @@ const update = async(preArmadoProduct) => {
     try {
         const foundPreArmadoProducto = await PreArmadoProducto.findOne({
             where: {
-                id: preArmadoProduct.id
+                id: parseInt(preArmadoProduct.id)
             }
         })
 
@@ -73,7 +73,7 @@ const remove = async (id) => {
     try {
         await PreArmadoProducto.destroy({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
 

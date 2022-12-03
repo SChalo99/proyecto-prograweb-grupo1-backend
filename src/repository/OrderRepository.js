@@ -21,7 +21,7 @@ const findAll = async(id) => {
     try {
         return await Order.findAll({
             where: {
-            user_id: id
+            user_id: parseInt(id)
           }
         },{ 
             include: User
@@ -38,7 +38,7 @@ const findOne = async(id) => {
     try {
         return await Order.findOne({
             where: {
-                id: id
+                id: parseInt(id)
             }
         }, { 
             include: User 
@@ -54,7 +54,7 @@ const update = async(order) => {
     try {
         const foundOrder = await Order.findOne({
             where: {
-                id: order.id
+                id: parseInt(order.id)
             }
         })
 
@@ -75,7 +75,7 @@ const remove = async (id) => {
     try {
         await Order.destroy({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
 

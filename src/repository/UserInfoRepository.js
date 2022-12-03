@@ -21,7 +21,7 @@ const findAll = async(id) => {
     try {
         return await UserInfo.findAll({
             where: {
-            user_id: id
+            user_id: parseInt(id)
           }
         },{ 
             include: User 
@@ -38,7 +38,7 @@ const findOne = async(id) => {
     try {
         return await UserInfo.findOne({
             where: {
-                id: id
+                id: parseInt(id)
             }
         },{ 
             include: User 
@@ -54,7 +54,7 @@ const update = async(userInfo) => {
     try {
         const foundUserInfo = await UserInfo.findOne({
             where: {
-                id: userInfo.id
+                id: parseInt(userInfo.id)
             }
         })
 
@@ -75,7 +75,7 @@ const remove = async (id) => {
     try {
         await UserInfo.destroy({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
 

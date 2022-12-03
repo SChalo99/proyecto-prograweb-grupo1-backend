@@ -48,7 +48,7 @@ const findOne = async (id) => {
     try {
         console.log(await User.findOne({
             where: {
-                id: id
+                id: parseInt(id)
             }}))
 
         return await User.findOne({
@@ -67,7 +67,7 @@ const update = async (user) => {
     try {
         const foundOrder = await User.findOne({
             where: {
-                id: user.id
+                id: parseInt(user.id)
             }
         })
 
@@ -88,7 +88,7 @@ const remove = async (id) => {
     try {
         await Order.destroy({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
 

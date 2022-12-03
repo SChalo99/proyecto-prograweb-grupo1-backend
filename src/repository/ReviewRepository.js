@@ -34,7 +34,7 @@ const findOne = async(id) => {
     try {
         return await Reviews.findOne({
             where: {
-                id: id
+                id: parseInt(id)
             }
         },{ 
             include: User 
@@ -50,7 +50,7 @@ const update = async(review) => {
     try {
         const foundReviews = await Reviews.findOne({
             where: {
-                id: review.id
+                id: parseInt(review.id)
             }
         })
 
@@ -71,7 +71,7 @@ const remove = async (id) => {
     try {
         await Reviews.destroy({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
 

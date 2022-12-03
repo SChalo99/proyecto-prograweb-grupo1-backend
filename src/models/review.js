@@ -12,7 +12,7 @@ const Reviews = sequelize.define('review', {
         allowNull: false
     },
     score: {
-        type: DataTypes.DOUBLE
+        type: DataTypes.INTEGER
     },
     comment: {
         type: DataTypes.STRING

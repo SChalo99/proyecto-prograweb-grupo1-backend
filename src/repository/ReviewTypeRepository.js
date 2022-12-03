@@ -21,7 +21,7 @@ const findAll = async(id) => {
     try {
         return await Review_Type.findAll({
             where: {
-            review_id: id
+            review_id: parseInt(id)
           }
         },{ 
             include: Reviews 
@@ -38,7 +38,7 @@ const findOne = async(id) => {
     try {
         return await Review_Type.findOne({
             where: {
-                id: id
+                id: parseInt(id)
             }
         },{ 
             include: Reviews 
@@ -54,7 +54,7 @@ const update = async(reviewType) => {
     try {
         const foundReviewsType = await Review_Type.findOne({
             where: {
-                id: reviewType.id
+                id: parseInt(reviewType.id)
             }
         })
 
@@ -75,7 +75,7 @@ const remove = async (id) => {
     try {
         await Review_Type.destroy({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
 

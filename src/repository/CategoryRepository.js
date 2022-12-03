@@ -31,7 +31,7 @@ const findOne = async(id) => {
     try {
         return await Category.findOne({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
     } catch (error) {
@@ -45,7 +45,7 @@ const update = async(category) => {
     try {
         const foundCategory = await Category.findOne({
             where: {
-                id: category.id
+                id: parseInt(category.id)
             }
         })
 
@@ -66,7 +66,7 @@ const remove = async (id) => {
     try {
         await Category.destroy({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
 

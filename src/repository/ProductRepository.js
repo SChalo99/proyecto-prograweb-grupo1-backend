@@ -33,7 +33,7 @@ const findOne = async(id) => {
     try {
         return await Product.findOne({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
     } catch (error) {
@@ -47,7 +47,7 @@ const update = async(product) => {
     try {
         const foundProduct = await Product.findOne({
             where: {
-                id: product.id
+                id: parseInt(product.id)
             }
         })
 
@@ -68,7 +68,7 @@ const remove = async (id) => {
     try {
         await Product.destroy({
             where: {
-                id: id
+                id: parseInt(id)
             }
         })
 
