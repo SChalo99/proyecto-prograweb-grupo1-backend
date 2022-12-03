@@ -1,4 +1,4 @@
-import formulario from "../models/formulario";
+import formulario from "../models/reporte";
 
 
 const create = async (formulario) => {
