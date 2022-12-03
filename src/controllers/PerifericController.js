@@ -2,9 +2,8 @@ import PerifericosRepository from "../repository/PerifericosRepository.js"
 
 const getallperifericos = async (req, res) => {
 
-    const courses = await PerifericosRepository.getallperifericos();
-
-    return sendResponse(courses, res);
+    const result = await PerifericosRepository.getallperifericos();
+    return sendResponse(result, res);
 }
 
 const sendResponse = (result, res) => {

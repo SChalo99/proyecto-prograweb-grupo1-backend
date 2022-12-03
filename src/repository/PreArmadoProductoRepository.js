@@ -1,4 +1,6 @@
+import PreArmado from "../models/preArmado.js";
 import PreArmadoProducto from "../models/preArmadoProducto.js";
+import Product from "../models/product.js";
 
 const create = async (preArmadoProduct) => {
 
@@ -15,15 +17,20 @@ const create = async (preArmadoProduct) => {
 
 }
 
-const findAll = async() => {
-
+const findProducto = async (id) => {
     try {
-        return await PreArmadoProducto.findAll([{ include: Order }, { include: Product }]); //Cambiar como findOrder de OrderProductRepo.
-    } catch(error) {
+        return await PreArmadoProducto.findAll({
+            include: {
+                model: Product,
+                model: PreArmado
+            }, where: {
+                preArmado_id: id
+            }
+        })
+    } catch (error) {
         console.error(error)
-        return null
+        return null;
     }
-
 }
 
 const findOne = async(id) => {
@@ -78,6 +85,6 @@ const remove = async (id) => {
     }
 }
 
-const PreArmadoProductRepository = { create, findAll, findOne, update, remove }
+const PreArmadoProductRepository = { create, findAll, findOne, update, remove, findProducto }
 
 export default PreArmadoProductRepository
