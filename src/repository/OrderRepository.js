@@ -24,7 +24,7 @@ const findAll = async(id) => {
             user_id: id
           }
         },{ 
-            include: User 
+            include: User
         });
     } catch(error) {
         console.error(error)

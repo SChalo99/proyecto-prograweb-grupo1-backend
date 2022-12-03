@@ -33,7 +33,8 @@ const findOrder = async(id) => {
     try {
         return await OrderProduct.findAll({
             include: {
-                model: Product
+                model: Product, 
+                model: Order
                 
             },where: {
                 order_id: id

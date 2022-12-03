@@ -40,8 +40,8 @@ const findOne = async(id) => {
         console.error(error)
         return null;
     }
-
 }
+
 
 const update = async(product) => {
     try {
